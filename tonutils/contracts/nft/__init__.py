@@ -1,3 +1,5 @@
+import typing as t
+
 from .collection import (
     BaseNFTCollection,
     NFTCollectionEditable,
@@ -14,9 +16,23 @@ from .item import (
     NFTItemStandard,
 )
 
+NFTCollectionLike = t.Union[
+    BaseNFTCollection,
+    NFTCollectionEditable,
+    NFTCollectionStandard,
+]
+NFTItemLike = t.Union[
+    BaseNFTItem,
+    NFTItemEditable,
+    NFTItemSoulbound,
+    NFTItemStandard,
+]
+
 __all__ = [
     "BaseNFTCollection",
     "BaseNFTItem",
+    "NFTCollectionLike",
+    "NFTItemLike",
     "NFTCollectionGetMethods",
     "NFTItemGetMethods",
     "NFTCollectionEditable",
