@@ -21,6 +21,10 @@ def build_external_msg_any(
     body: t.Optional[Cell] = None,
     state_init: t.Optional[StateInit] = None,
 ) -> MessageAny:
+    if isinstance(src, str):
+        src = Address(src)
+    if isinstance(dest, str):
+        dest = Address(dest)
     info = ExternalMsgInfo(src=src, dest=dest, import_fee=import_fee)
     return MessageAny(info, state_init, body)
 
@@ -39,6 +43,10 @@ def build_internal_msg_any(
     body: t.Optional[Cell] = None,
     state_init: t.Optional[StateInit] = None,
 ) -> MessageAny:
+    if isinstance(src, str):
+        src = Address(src)
+    if isinstance(dest, str):
+        dest = Address(dest)
     if isinstance(value, int):
         value = CurrencyCollection(value)
     if bounce is None:
@@ -62,13 +70,15 @@ def build_internal_msg_any(
 
 
 def build_internal_wallet_msg(
-    dest: Address,
+    dest: t.Union[Address, str],
     send_mode: t.Optional[int] = None,
     value: int = 0,
     body: t.Optional[Cell] = None,
     state_init: t.Optional[StateInit] = None,
     bounce: t.Optional[bool] = None,
 ) -> WalletMessage:
+    if isinstance(dest, str):
+        dest = Address(dest)
     if send_mode is None:
         send_mode = DEFAULT_SENDMODE
 
