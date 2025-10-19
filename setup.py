@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="tonutils",
-    version="1.0.0a3",
+    version="1.0.0a4",
     author="nessshon",
     description=(
         "Tonutils is a high-level, object-oriented Python library "
@@ -24,7 +24,7 @@ setuptools.setup(
     package_data={"tonutils": ["py.typed"]},
     python_requires=">=3.10",
     install_requires=[
-        "pyapiq>=0.1.3",
+        "pyapiq>=0.1.5",
         "pytoniq-core>=0.1.44",
         "PyNaCl~=1.5.0",
     ],
