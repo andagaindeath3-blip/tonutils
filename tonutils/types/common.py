@@ -28,8 +28,8 @@ class WorkchainID(int, Enum):
 
 
 class MetadataPrefix(int, Enum):
-    ONCHAIN = 0x00
-    OFFCHAIN = 0x01
+    ONCHAIN = 0
+    OFFCHAIN = 1
 
 
 DEFAULT_SUBWALLET_ID = 698983191

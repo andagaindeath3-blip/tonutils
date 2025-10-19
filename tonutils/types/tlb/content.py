@@ -43,7 +43,7 @@ class OnchainContent(TlbScheme):
     def _value_serializer(v: str, b: Builder) -> Builder:
         cell = begin_cell()
         cell.store_uint(MetadataPrefix.ONCHAIN, 8)
-        cell.store_snake_string(v)
+        cell.store_snake_string(str(v))
         return b.store_ref(cell.end_cell())
 
     @staticmethod
