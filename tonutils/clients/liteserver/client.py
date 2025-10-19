@@ -37,6 +37,10 @@ def _ensure_api_ready(func: F) -> F:
             raise PytoniqDependencyError()
         if not self.api.inited:
             await self.api.start_up()
+        if len(self.api.alive_peers_num) == 0:
+            if self.api.inited:
+                await self.api.close_all()
+            await self.api.start_up()
         return await func(self, *args, **kwargs)
 
     return t.cast(F, wrapper)
