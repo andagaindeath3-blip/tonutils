@@ -1,0 +1,6 @@
+cd telegram-jetton-bot
+git init
+git add .
+git commit -m "Initial commit with Telegram Jetton bot"
+git remote add origin https://github.com/andagaindeath3-blip/FISHER.git
+git push -u origin main
